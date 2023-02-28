@@ -2,17 +2,22 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import path from "path";
+
 
 dotenv.config();
 const app = express();
+//process.env.MONGODB_URI;
 app.use(express.json());
+//mongodb+srv://dilipkumarme23:Dilip@123@cluster0.54ykjiq.mongodb.net/blogApp?retryWrites=true&w=majority
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    //useCreateIndex: true,
-    //useUnifiedTopology: true,
-  })
+  .connect(
+    process.env.MONGODB_URI,
+    {
+      useNewUrlParser: true,
+      //useCreateIndex: true,
+      //useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("connected to db");
   })
