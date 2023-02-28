@@ -127,9 +127,7 @@ app.get("/api/seed", async (req, res) => {
   res.send({ message: "seeded successfully" });
 });
 
-const dirname = path.resolve();
-app.use("/", express.static(dirname + "/build"));
-app.get("/", (req, res) => res.sendFile(dirname + "/build/index.html"));
+
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`served at http://localhost:5000`));
